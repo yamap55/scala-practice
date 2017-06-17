@@ -65,5 +65,25 @@ object MatchSample {
       case v: List[_] => println("List[_]")
     }
 
+    // なんでエラーになるんだろう？Scalaについてわかってきたら調べる TODO
+    // Exception in thread "main" scala.MatchError: List(Q, R, P, E, A) (of class scala.collection.immutable.$colon$colon)
+
+//    var count = 0
+//    while (count < 1000) {
+//      new scala.util.Random(new java.security.SecureRandom()).alphanumeric.take(5).toList match {
+//        case List(a, b, c, d, e) if (a == e) =>
+//          println(a + b + c + d + e)
+//          count = count + 1
+//      }
+//    }
+
+    println("*******")
+
+    for (count <- 1 to 1000) {
+      val l = new scala.util.Random(new java.security.SecureRandom()).alphanumeric.take(5).toList match {
+        case List(a, b, c, d, e) => List(a, b, c, d, a)
+      }
+      println(l)
+    }
   }
 }
