@@ -5,6 +5,24 @@ object CollectionSample {
     arrayMethod()
     rangeMethod()
     listMethod()
+    mkStringMethod()
+  }
+
+  def mkStringMethod(): Unit = {
+    println("--- mkString Start ---")
+
+    val list = List(1, 2, 3, 4, 5)
+    println(list.mkString)
+    //    println(List(1, 2, 3, 4, 5).mkString()) // compile error
+    println(list.mkString("[", ",", "]"))
+
+    println(joinByComma(1, 10))
+
+    println("--- mkString End ---")
+  }
+
+  def joinByComma(num1: Int, num2: Int): String = {
+    (num1 to num2).mkString(",")
   }
 
   def listMethod(): Unit = {
@@ -38,9 +56,6 @@ object CollectionSample {
 
     val a9 = List(1, 2).++(List(3, 4))
     println(a9)
-
-
-
 
     println("--- List End ---")
   }
