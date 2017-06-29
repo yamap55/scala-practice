@@ -6,6 +6,46 @@ object CollectionSample {
     rangeMethod()
     listMethod()
     mkStringMethod()
+    foldLeftMethod()
+    foldRightMethod()
+  }
+  def foldRightMethod(): Unit = {
+    println("--- foldRight Start ---")
+    println(List("a", "b", "c").foldLeft("")(
+      (x, y) => {
+        println(x + "," + y)
+        x + y
+      }))
+    println(List("a", "b", "c").foldRight("")(
+      (x, y) => {
+        println(y + "," + x)
+        y + x
+      }))
+
+    println(sum(List(1, 2, 3, 4)))
+    println(mul(List(1, 2, 3, 4)))
+    println("--- foldRight End ---")
+  }
+  def sum(list: List[Int]): Int = {
+    list.foldRight(0)((x, y) => x + y)
+  }
+
+  def mul(list: List[Int]): Int = {
+    list.foldRight(1)((x, y) => x * y)
+  }
+
+  def foldLeftMethod(): Unit = {
+    println("--- foldLeft Start ---")
+
+    println(List(1, 2, 3).foldLeft(0)((x, y) => x + y))
+    println(List(1, 2, 3).foldLeft(1)((x, y) => x * y))
+    println(reverse(List(1, 2, 3)))
+
+    println("--- foldLeft End ---")
+  }
+
+  def reverse[T](list: List[T]): List[T] = {
+    list.foldLeft(List(): List[T])((x, y) => y :: x)
   }
 
   def mkStringMethod(): Unit = {
