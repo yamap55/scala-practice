@@ -8,7 +8,28 @@ object CollectionSample {
     mkStringMethod()
     foldLeftMethod()
     foldRightMethod()
+    mapMethod()
   }
+  //    println("--- foldRight Start ---")
+  //    println("--- foldRight End ---")
+
+  def mapMethod(): Unit = {
+    println("--- map Start ---")
+
+    val list1 = List(1, 2, 3, 4).map(x => x * 2)
+    println(list1)
+
+    val list2 = map(List(1, 2, 3, 4))(x => x * 2)
+    println(list2)
+
+    println("--- map End ---")
+  }
+
+  def map[T, U](list: List[T])(f: T => U): List[U] = {
+    //    list.foldLeft(List(): List[U])((x, y) => x.::(f(y))).reverse
+    list.foldLeft(List(): List[U])((x, y) => f(y) :: x).reverse
+  }
+
   def foldRightMethod(): Unit = {
     println("--- foldRight Start ---")
     println(List("a", "b", "c").foldLeft("")(
