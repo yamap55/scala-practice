@@ -9,9 +9,26 @@ object CollectionSample {
     foldLeftMethod()
     foldRightMethod()
     mapMethod()
+    filterMethod()
   }
   //    println("--- foldRight Start ---")
   //    println("--- foldRight End ---")
+
+  def filterMethod(): Unit = {
+    println("--- filter Start ---")
+    val list1 = List(1, 2, 3, 4, 5).filter(x => x % 2 == 1)
+    println(list1)
+
+    val list2 = filter(List(1, 2, 3, 4, 5))(x => x % 2 == 1)
+    println(list2)
+    println("--- filter End ---")
+  }
+
+  def filter[T](list: List[T])(f: T => Boolean): List[T] = {
+    list.foldLeft(Nil: List[T])((x, y) => {
+      if (f(y)) y :: x else x
+    }).reverse
+  }
 
   def mapMethod(): Unit = {
     println("--- map Start ---")
