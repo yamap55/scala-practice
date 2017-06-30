@@ -15,10 +15,28 @@ object CollectionSample {
     countMethod()
     flatMapMethod()
     vectorMethod()
+    mapClassMethod()
   }
 
   //    println("--- foldRight Start ---")
   //    println("--- foldRight End ---")
+
+  def mapClassMethod(): Unit = {
+    println("--- map class Start ---")
+
+    val m1 = Map("a" -> 1, "b" -> 2, "c" -> 3)
+    val m2 = m1.updated("b", 99)
+    // m1はイミュータブル
+    println("m1 : " + m1 + ", m2 : " + m2)
+
+    // ミュータブルを使用したい場合には別パッケージのMapを使用する。
+    // イミュータブルのMapは「scala.collection.immutable.Map」
+    val m3 = scala.collection.mutable.Map("a" -> 1, "b" -> 2, "c" -> 3)
+    m3("b") = 99
+    println(m3)
+
+    println("--- map class End ---")
+  }
 
   def vectorMethod(): Unit = {
 
