@@ -16,10 +16,34 @@ object CollectionSample {
     flatMapMethod()
     vectorMethod()
     mapClassMethod()
+    setClassMethod()
   }
 
   //    println("--- foldRight Start ---")
   //    println("--- foldRight End ---")
+
+  def setClassMethod() : Unit = {
+    println("--- set class Start ---")
+
+    val s1 = Set(1,1,2,2,3,3)
+    println(s1)
+
+    val s2 = s1 - 2
+    println("s1 : " + s1 + ", s2 : " + s2)
+
+    // ミュータブルを使用したい場合には別パッケージのSapを使用する。
+    // イミュータブルのMapは「scala.collection.immutable.Set」
+    val s3 = scala.collection.mutable.Set(1,1,2,2,3,3)
+
+    // mutableには「-=」、「+=」が存在する。
+    // 「s3 - 2」だけでは元のSetは変更されない！！
+    s3 -= 2
+    println("s3 : " + s3)
+    s3 += 99
+    println("s3 : " + s3)
+
+    println("--- set class End ---")
+  }
 
   def mapClassMethod(): Unit = {
     println("--- map class Start ---")
