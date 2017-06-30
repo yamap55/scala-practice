@@ -11,9 +11,18 @@ object CollectionSample {
     mapMethod()
     filterMethod()
     findMethod()
+    takeWhileMethod()
   }
+
   //    println("--- foldRight Start ---")
   //    println("--- foldRight End ---")
+
+  def takeWhileMethod(): Unit = {
+    println("--- takeWhile Start ---")
+    val list = List(1, 2, 3, 4, 5, 6).takeWhile(x => x != 5)
+    println(list)
+    println("--- takeWhile End ---")
+  }
 
   def findMethod(): Unit = {
     println("--- find Start ---")
