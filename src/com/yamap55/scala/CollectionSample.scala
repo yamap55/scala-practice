@@ -14,10 +14,31 @@ object CollectionSample {
     takeWhileMethod()
     countMethod()
     flatMapMethod()
+    vectorMethod()
   }
 
   //    println("--- foldRight Start ---")
   //    println("--- foldRight End ---")
+
+  def vectorMethod(): Unit = {
+
+    // 要素へのランダムアクセス、挿入削除どれも高速なので
+    // とりあえずデフォルトはVectorで良いっぽい
+    // Listを使う時はSeqを使うのが主流という記事があったが、研修資料ではListになってる。
+    println("--- vector Start ---")
+    val v1 = Vector(1, 2, 3, 4, 5)
+
+    val v2 = 6 +: v1
+    println(v2)
+
+    val v3 = v1 :+ 6
+    println(v3)
+
+    val v4 = v1.updated(2, 5)
+    println(v4)
+
+    println("--- vector End ---")
+  }
 
   def flatMapMethod(): Unit = {
     println("--- flatMap Start ---")
