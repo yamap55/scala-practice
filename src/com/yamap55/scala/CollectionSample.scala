@@ -13,10 +13,26 @@ object CollectionSample {
     findMethod()
     takeWhileMethod()
     countMethod()
+    flatMapMethod()
   }
 
   //    println("--- foldRight Start ---")
   //    println("--- foldRight End ---")
+
+  def flatMapMethod(): Unit = {
+    println("--- flatMap Start ---")
+
+    val list1 = List(List(1, 2, 3), List(4, 5)).flatMap { e => e.map { g => g + 1 } }
+    println(list1)
+
+    val list2 = List(1, 2, 3).flatMap { e => List(4, 5).map { g => e * g } }
+    println(list2)
+
+    val a = Seq(Seq("hello", "world"), Seq("good", "morning")) flatMap { x => x.mkString(" ").toUpperCase }
+    println(a) // StringはCharの配列として扱われる
+
+    println("--- flatMap End ---")
+  }
 
   def countMethod(): Unit = {
     println("--- count Start ---")
