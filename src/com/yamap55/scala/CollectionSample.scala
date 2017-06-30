@@ -12,10 +12,26 @@ object CollectionSample {
     filterMethod()
     findMethod()
     takeWhileMethod()
+    countMethod()
   }
 
   //    println("--- foldRight Start ---")
   //    println("--- foldRight End ---")
+
+  def countMethod(): Unit = {
+    println("--- count Start ---")
+    val count1 = List(1, 2, 3, 4, 5).count(x => x % 2 == 0)
+    println(count1)
+
+    val count2 = count(List(1, 2, 3, 4, 5))(x => x % 2 == 0)
+    println(count2)
+
+    println("--- count End ---")
+  }
+
+  def count[T](list: List[T])(f: T => Boolean): Int = {
+    list.foldLeft(0)((x, y) => if (f(y)) x + 1 else x)
+  }
 
   def takeWhileMethod(): Unit = {
     println("--- takeWhile Start ---")
