@@ -184,6 +184,13 @@ object CollectionSample {
     val a9 = List(1, 2).++(List(3, 4))
     println(a9)
 
+    val a10 = 5 :: List(1, 2, 3, 4)
+    println(a10)
+
+    // 末尾への追加はListの要素数分かかるから遅い
+    val a11 = List(1, 2, 3, 4) :+ 5
+    println(a11)
+
     println("--- List End ---")
   }
 
