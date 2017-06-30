@@ -10,9 +10,17 @@ object CollectionSample {
     foldRightMethod()
     mapMethod()
     filterMethod()
+    findMethod()
   }
   //    println("--- foldRight Start ---")
   //    println("--- foldRight End ---")
+
+  def findMethod(): Unit = {
+    println("--- find Start ---")
+    val num = List(1, 2, 3, 4, 5).find(x => x % 9 == 1)
+    println(num)
+    println("--- find End ---")
+  }
 
   def filterMethod(): Unit = {
     println("--- filter Start ---")
