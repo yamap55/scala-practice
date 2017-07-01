@@ -17,15 +17,29 @@ object CollectionSample {
     vectorMethod()
     mapClassMethod()
     setClassMethod()
+    setClassMethod2()
   }
 
   //    println("--- foldRight Start ---")
   //    println("--- foldRight End ---")
 
-  def setClassMethod() : Unit = {
+  def setClassMethod2(): Unit = {
+    println("--- set class Start ---")
+    val set1 = scala.collection.mutable.Set(1, 2, 3)
+    val set2 = set1 - 2 // imutableでも可能
+    println(set1) // Set(1, 2, 3)
+    println(set2) // Set(1, 3)
+
+    val set3 = scala.collection.mutable.Set(1, 2, 3)
+    set3 -= 2
+    println(set3) // Set(1, 3)
+    println("--- set class End ---")
+  }
+
+  def setClassMethod(): Unit = {
     println("--- set class Start ---")
 
-    val s1 = Set(1,1,2,2,3,3)
+    val s1 = Set(1, 1, 2, 2, 3, 3)
     println(s1)
 
     val s2 = s1 - 2
@@ -33,7 +47,7 @@ object CollectionSample {
 
     // ミュータブルを使用したい場合には別パッケージのSapを使用する。
     // イミュータブルのMapは「scala.collection.immutable.Set」
-    val s3 = scala.collection.mutable.Set(1,1,2,2,3,3)
+    val s3 = scala.collection.mutable.Set(1, 1, 2, 2, 3, 3)
 
     // mutableには「-=」、「+=」が存在する。
     // 「s3 - 2」だけでは元のSetは変更されない！！
